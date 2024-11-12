@@ -59,7 +59,6 @@ impl Frame {
     ///
     fn reset(&mut self) {
         self.camera.is_photo = bool::default();
-        self.camera.is_video = bool::default();
         self.app.tip = String::default();
         self.app.warn = String::default();
 
@@ -334,7 +333,7 @@ pub fn records_to_frames(records: Vec<Record>, details: Details) -> Vec<Frame> {
                 }
             }
             Record::Custom(custom) => {
-                frame.custom.date_time = custom.update_time_stamp;
+                frame.custom.date_time = custom.update_timestamp;
             }
             Record::Home(home) => {
                 frame.home.latitude = home.latitude;
